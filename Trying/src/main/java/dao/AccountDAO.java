@@ -34,6 +34,7 @@ public class AccountDAO {
 						break;
 					case "3":
 						//withdraw
+						doWithdraw();
 						break;
 					case "4":
 						//quit
@@ -107,8 +108,33 @@ public class AccountDAO {
 			 stmt.executeUpdate("UPDATE acclogin SET balance =  '"+deposit+"'+ balance WHERE fname = '"+fname+"', lname= '"+lname+"',password ='"+password+"'" );
 			 scanner.close();
 		 }catch (SQLException e) {
+			 
+		 }
 			// 
 		}
+		 
+		 public static void doWithdraw() {
+			 
+			 Scanner scanner = new Scanner(System.in);
+			 try(Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "mko0NJI9vg$")){		
+				 
+				 Statement stmt = conn.createStatement();
+				 
+				 System.out.println("Enter first name:");
+				 String fname=scanner.next();
+				 System.out.println("Enter last name:");
+				 String lname=scanner.next();
+				 System.out.println("Enter password:");
+				 String password=scanner.next();
+				 System.out.println("Enter amount:");
+				 String deposit=scanner.next();
+				 
+				 stmt.executeUpdate("SELECT * FROM public.acclogin WHERE fname = '"+fname+"', lname= '"+lname+"',password ='"+password+"'");
+				 stmt.executeUpdate("UPDATE acclogin SET balance =  '"+deposit+"'- balance WHERE fname = '"+fname+"', lname= '"+lname+"',password ='"+password+"'" );
+				 scanner.close();
+			 }catch (SQLException e) {
+				// 
+			}
 	 
 		 
 	 
