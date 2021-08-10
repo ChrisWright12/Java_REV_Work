@@ -59,12 +59,12 @@ public class Userdao {
 			ResultSet resultSet = smt.executeQuery();
 			
 			while (resultSet.next()) {
-				int a = resultSet.getInt("id");
-				String b = resultSet.getString("acct_type");
-				double c = resultSet.getDouble("balance");
-				System.out.println("              " + a + " | " + b + ":    " + c + " ");
+				int id = resultSet.getInt("id");
+				String type = resultSet.getString("acct_type");
+				double bal = resultSet.getDouble("balance");
+				System.out.println("              " + id + " : " + type + ":    " + bal + " ");
 				
-				user.getAcctNumbers().add(a);
+				user.getAcctNumbers().add(id);
 				hasAccts = true;
 			}
 			

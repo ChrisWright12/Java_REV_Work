@@ -40,7 +40,6 @@ public class User {
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public User(int id, String firstName, String lastName, String email, String pass_hash) {
