@@ -1,0 +1,17 @@
+<div>
+    <form class="main" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <label for="user_Id">User ID: </label>
+        <input id="user_ID" type = "text" [(ngModel)]="login.id"
+        name = "id"
+        placeholder="User ID">
+        <p></p>
+        <label for="password">Password: </label>
+        <input id="password" type = "password" [(ngModel)]="login.password"
+        name = "password"
+        placeholder="Password">
+        <p></p>
+        <button type="submit">Submit</button>
+        
+    </form>
+
+</div>

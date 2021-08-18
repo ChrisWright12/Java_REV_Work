@@ -1,0 +1,10 @@
+ <ul class="tickets">
+        <li *ngFor='let ticket of tickets'
+        [class.selected]= "ticket === selectedTicket"
+        (click)="onSelect(ticket)">
+                <span class='badge1'>{{ticket.ticket_id}}</span> {{ ticket.type | uppercase }} 
+            {{ticket.amount | currency : 'USD' }}
+        </li>
+        <button (click)="logout()">Logout</button>
+    </ul>
+    <app-view [ticket]="selectedTicket"></app-view>

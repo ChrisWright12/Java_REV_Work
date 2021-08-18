@@ -1,0 +1,10 @@
+<div *ngIf="ticket">
+    <h2>Details of Ticket Number {{ticket.ticket_id}}</h2>
+    <div><span>Ticket ID: </span>{{ticket.ticket_id}}</div>
+     <div>
+         <P>User ID: {{ticket.user_ID}}</P>
+         <p>Ticket Type: {{ticket.type | uppercase}}</p>
+        <p>Ticket Amount: {{ticket.amount | currency: 'USD'}}</p>
+    </div>
+
+</div>
